@@ -2,8 +2,12 @@ from fastapi import FastAPI
 from typing import List, Optional
 from pydantic import BaseModel
 from uuid import uuid4
+from cors import cors
+
 
 app = FastAPI()
+
+cors(app)
 
 
 class Animal(BaseModel):
