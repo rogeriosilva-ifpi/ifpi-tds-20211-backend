@@ -1,8 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Path
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Optional
 from pydantic import BaseModel
 from uuid import uuid4
+
 
 app = FastAPI()
 
@@ -42,7 +43,7 @@ def obter_animal(animal_id: str):
 
 
 @app.delete('/animais/{animal_id}')
-def remover_animal(animal_id: str):
+def remover_animal(animal_id: str = Path(..., title='Código do animal a se buscar')):
     posicao = -1
     # buscar o posicao do animal
     for index, animal in enumerate(banco):
