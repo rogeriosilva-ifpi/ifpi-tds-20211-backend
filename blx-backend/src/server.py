@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from src.infra.sqlalchemy.config.database import SessionLocal, engine, get_db, criar_bd
 from src.infra.sqlalchemy.models import models
 from src.schema import schemas
-from src.infra.sqlalchemy.repositorios.RepositorioProduto import RepositorioProduto
+from src.infra.sqlalchemy.repositorios.produto import RepositorioProduto
 from fastapi import FastAPI, Depends
 from typing import List
 
