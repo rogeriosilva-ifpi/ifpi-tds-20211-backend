@@ -23,7 +23,7 @@ app.add_middleware(CORSMiddleware,
                    allow_methods=["*"],
                    allow_headers=["*"],)
 
-# PRODUTOS
+# Rotas PRODUTOS
 
 
 @app.post('/produtos',
