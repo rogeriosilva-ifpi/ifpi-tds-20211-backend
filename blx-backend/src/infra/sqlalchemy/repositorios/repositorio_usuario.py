@@ -28,3 +28,9 @@ class RepositorioUsuario():
             and_(models.Usuario.telefone == telefone, models.Usuario.senha == senha))
 
         return self.session.execute(query).scalars().first()
+
+    def obter_por_telefone(self, telefone: str):
+        query = select(models.Usuario).where(
+            models.Usuario.telefone == telefone)
+
+        return self.session.execute(query).scalars().first()
