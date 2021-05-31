@@ -32,6 +32,11 @@ class UsuarioSimples(BaseModel):
         orm_mode = True
 
 
+class LoginData(BaseModel):
+    telefone: str
+    senha: str
+
+
 class Produto(BaseModel):
     id: Optional[int] = None
     nome: str

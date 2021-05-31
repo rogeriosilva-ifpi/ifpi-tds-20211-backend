@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, and_
 from sqlalchemy.orm import Session
 from src.schemas import schemas
 from src.infra.sqlalchemy.models import models
@@ -23,8 +23,8 @@ class RepositorioUsuario():
         usuarios = self.session.execute(stmt).scalars().all()
         return usuarios
 
-    def obter():
-        pass
+    def obter_por_telefone_senha(self, telefone: str, senha: str):
+        query = select(models.Usuario).where(
+            and_(models.Usuario.telefone == telefone, models.Usuario.senha == senha))
 
-    def remover():
-        pass
+        return self.session.execute(query).scalars().first()
