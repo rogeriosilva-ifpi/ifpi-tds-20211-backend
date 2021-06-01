@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from jose import JWTError, jwt
+from jose import jwt
 
 # JOSE Config vars
 SECRET_KEY = 'chave-secreta'
