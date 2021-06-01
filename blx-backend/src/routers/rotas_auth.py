@@ -13,7 +13,7 @@ router = APIRouter()
 
 
 @router.post('/signup',
-             status_code=status.HTTP_201_CREATED, response_model=Usuario)
+             status_code=status.HTTP_201_CREATED, response_model=UsuarioSimples)
 def signup(usuario: Usuario, session: Session = Depends(get_db)):
     usuario_encontrado = RepositorioUsuario(
         session).obter_por_telefone(usuario.telefone)
