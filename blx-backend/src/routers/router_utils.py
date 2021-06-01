@@ -10,8 +10,8 @@ from src.infra.sqlalchemy.config.database import get_db
 oauth2_schema = OAuth2PasswordBearer(tokenUrl='token')
 
 
-def obter_usuario_logado(token: str = Depends(oauth2_schema), session: Session = Depends(get_db)):
-
+def obter_usuario_logado(token: str = Depends(oauth2_schema),
+                         session: Session = Depends(get_db)):
     try:
         telefone: str = token_provider.verificar_access_token(token)
     except JWTError:

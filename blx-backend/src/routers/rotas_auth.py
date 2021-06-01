@@ -13,10 +13,8 @@ router = APIRouter()
 
 
 @router.post('/signup',
-             status_code=status.HTTP_201_CREATED,
-             response_model=Usuario)
+             status_code=status.HTTP_201_CREATED, response_model=Usuario)
 def signup(usuario: Usuario, session: Session = Depends(get_db)):
-
     usuario_encontrado = RepositorioUsuario(
         session).obter_por_telefone(usuario.telefone)
 
@@ -34,8 +32,7 @@ def login(login_data: LoginData, session: Session = Depends(get_db)):
     senha = login_data.senha
     telefone = login_data.telefone
 
-    usuario = RepositorioUsuario(session).obter_por_telefone(
-        telefone)
+    usuario = RepositorioUsuario(session).obter_por_telefone(telefone)
 
     if not usuario:
         raise HTTPException(
